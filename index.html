@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprar Crowns</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      font-size: 16px;
+      text-align: center;
+    }
+    .resultado {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #008000;
+    }
+    button {
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #1ebd5a;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Comprar Crowns</h2>
+    <p>Preço: <strong>R$0,12</strong> por Crown</p>
+    <input type="number" id="crowns" placeholder="Digite a quantidade" oninput="calcular()">
+    <div class="resultado" id="valor"></div>
+    <button onclick="enviarWhatsApp()">Comprar agora</button>
+  </div>
+
+  <script>
+    let total = 0;
+
+    function calcular() {
+      let crowns = document.getElementById("crowns").value;
+      let preco = 0.12; // valor de 1 Crown
+      total = crowns * preco;
+
+      if (crowns > 0) {
+        document.getElementById("valor").innerText = 
+          "Valor total: R$ " + total.toFixed(2).replace(".", ",");
+      } else {
+        document.getElementById("valor").innerText = "";
+      }
+    }
+
+    function enviarWhatsApp() {
+      let crowns = document.getElementById("crowns").value;
+      if (crowns <= 0 || crowns == "") {
+        alert("Digite a quantidade de Crowns primeiro!");
+        return;
+      }
+
+      let mensagem = `Olá! Gostaria de comprar ${crowns} Crowns. Valor total: R$ ${total.toFixed(2).replace(".", ",")}`;
+      let numero = "5579981101274"; // Seu número
+
+      let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
