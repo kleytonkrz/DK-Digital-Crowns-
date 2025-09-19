@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DK Digital - Crowns</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f0f17;
+      color: #e0e0e0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    header {
+      background: rgba(15,15,23,0.85);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(34,197,94,0.5);
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,255,128,0.3);
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(34,197,94,0.5);
+    }
+
+    footer {
+      background-color: #1a1a28;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="fixed w-full z-50 shadow">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <img src="https://i.imgur.com/l0hZnCh.png" alt="Digital Kyber" class="h-12 rounded">
+      <nav class="space-x-4 hidden md:flex">
+        <a href="#inicio" class="hover:text-green-400">Início</a>
+        <a href="#comprar" class="hover:text-green-400">Comprar</a>
+        <a href="#sobre" class="hover:text-green-400">Sobre</a>
+        <a href="#redes" class="hover:text-green-400">Redes</a>
+        <a href="#contato" class="hover:text-green-400">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="h-screen flex flex-col justify-center items-center text-center px-6" data-aos="fade-up">
+    <h1 class="text-4xl md:text-6xl font-bold text-green-400 mb-6">Compre seus Crowns de forma rápida e segura</h1>
+    <p class="text-lg md:text-xl mb-8 text-gray-400">Entrega imediata via WhatsApp, com toda a confiança da DK Digital</p>
+    <a href="#comprar" class="btn bg-green-500 text-white px-6 py-3 rounded-full font-semibold">Comprar Agora</a>
+  </section>
+
+  <!-- Comprar Crowns -->
+  <section id="comprar" class="py-20 container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-green-400 mb-10" data-aos="fade-up">Comprar Crowns</h2>
+    <div class="bg-gray-900 p-8 rounded-2xl shadow-lg max-w-md mx-auto card" data-aos="zoom-in">
+      <label for="crowns" class="block mb-4 text-lg">Quantos Crowns você deseja?</label>
+      <input type="number" id="crowns" placeholder="Ex: 100" class="w-full p-3 rounded text-black mb-6" oninput="calcValor()">
+      <p id="valor" class="text-xl font-semibold mb-6">Valor: R$ 0,00</p>
+      <a id="whatsappLink" target="_blank" class="btn bg-green-600 px-6 py-3 rounded-full font-bold text-white">Finalizar no WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="py-20 container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-green-400 mb-12" data-aos="fade-up">Por que escolher a DK Digital?</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-gray-800 p-6 rounded-xl shadow card" data-aos="fade-up">
+        <h3 class="text-xl font-semibold mb-2">🚀 Entrega imediata</h3>
+        <p class="text-gray-400">Após o pagamento, você recebe seus Crowns diretamente.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow card" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-semibold mb-2">🔒 Segurança</h3>
+        <p class="text-gray-400">Todo processo de compra é transparente e protegido.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow card" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-xl font-semibold mb-2">🤝 Suporte</h3>
+        <p class="text-gray-400">Atendimento humanizado e direto pelo WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Redes -->
+  <section id="redes" class="py-20 bg-gray-900 text-center">
+    <h2 class="text-3xl font-bold text-green-400 mb-12" data-aos="fade-up">Nossas Redes</h2>
+    <div class="flex justify-center space-x-8 text-4xl">
+      <a href="https://wa.me/5579981101274" target="_blank" class="hover:text-green-400 transition-transform transform hover:scale-110"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/kyber_digital" target="_blank" class="hover:text-pink-500 transition-transform transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-20 container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-green-400 mb-10" data-aos="fade-up">Fale Conosco</h2>
+    <p class="mb-6 text-gray-400">Entre em contato pelo WhatsApp para tirar dúvidas ou finalizar sua compra.</p>
+    <a href="https://wa.me/5579981101274" target="_blank" class="btn bg-green-500 px-6 py-3 rounded-full font-bold text-white">Abrir WhatsApp</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
+    © 2025 DK Digital - Todos os direitos reservados. <br> Não somos afiliados oficiais à Avakin.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function calcValor() {
+      const crowns = document.getElementById('crowns').value;
+      const valor = crowns * 0.12;
+      document.getElementById('valor').innerText = 'Valor: R$ ' + valor.toFixed(2).replace('.', ',');
+      document.getElementById('whatsappLink').href = 
+        'https://wa.me/5579981101274?text=Olá! Quero comprar ' + crowns + ' Crowns por R$ ' + valor.toFixed(2).replace('.', ',');
+    }
+  </script>
+</body>
+</html>
